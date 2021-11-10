@@ -86,3 +86,15 @@ proc tracef*(str: cstring) {.varargs.}
 ## Prints a message to the debug console.
 
 {.pop.}
+
+import std/macros
+
+macro exportWasm*(def: untyped): untyped = 
+  result = def
+  result[^3] = nnkPragma.newTree( 
+    ident("exportc"),
+    nnkExprColonExpr.newTree(
+      ident("codegenDecl"),
+      newStrLitNode("__attribute__((export_name(\"$2\"))) $1 $2$3")
+    )
+  )

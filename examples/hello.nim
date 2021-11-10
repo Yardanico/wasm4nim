@@ -11,8 +11,6 @@ var smiley = [
   0b11000011,
 ]
 
-{.pragma: exportWasm, exportc, codegenDecl: "__attribute__((export_name(\"$2\"))) $1 $2$3".}
-
 # Uncomment if you need to do something in the start
 # proc start {.exportWasm.} = discard
 
