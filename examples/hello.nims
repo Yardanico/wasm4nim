@@ -15,6 +15,7 @@ switch("os", "any") # common ANSI C target
 switch("define", "posix") # needed for Nim
 
 switch("define", "noSignalHandler") # wasm has no signal handlers
+switch("noMain") # the only entrypoints are start and update
 switch("define", "useMalloc") # use malloc instead of nim's memory allocator
 
 switch("clang.exe", wasi / "bin" / "clang")

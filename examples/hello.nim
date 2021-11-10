@@ -11,9 +11,14 @@ var smiley = [
   0b11000011,
 ]
 
-proc update {.exportc.} = 
+{.pragma: exportWasm, exportc, codegenDecl: "__attribute__((export_name(\"$2\"))) $1 $2$3".}
+
+# Uncomment if you need to do something in the start
+# proc start {.exportWasm.} = discard
+
+proc update {.exportWasm.} = 
   DRAW_COLORS[] = 2
-  text("Hello from C!", 10, 10)
+  text("Hello from Nim!", 10, 10)
 
   var gamepad = GAMEPAD1[]
   if bool(gamepad and BUTTON_1):

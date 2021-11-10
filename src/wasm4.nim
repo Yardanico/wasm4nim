@@ -41,11 +41,7 @@ const
   TONE_MODE3* = 8
   TONE_MODE4* = 12
 
-# TODO: Is there a better way?
-from os import splitPath
-{.passC: "-I" & currentSourcePath().splitPath.head.}
-{.push importc, header: "wasm4.h".}
-
+{.push importc, codegenDecl: "__attribute__((import_name(\"$2\"))) $1 $2$3".}
 proc blit*(data: ptr uint8; x: int32; y: int32; width: uint32; height: uint32;
           flags: uint32)
 ## Copies pixels to the framebuffer.
@@ -88,4 +84,5 @@ proc trace*(str: cstring)
 ## Prints a message to the debug console.
 proc tracef*(str: cstring) {.varargs.}
 ## Prints a message to the debug console.
+
 {.pop.}
