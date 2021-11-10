@@ -1,8 +1,5 @@
 ## A simple example of how to use wasm-4 with Nim
 
-Since Nim compiles to C we can simple reuse the existing `wasm4.h` header and all the C compiler settings. 
-This is especially useful for `WASM_IMPORT` and `WASM_EXPORT` as it's not easy to emit those with Nim itself.
-
 Compile the example with:
 ```
 nim c -d:danger -o:build/hello.wasm examples/hello.nim
