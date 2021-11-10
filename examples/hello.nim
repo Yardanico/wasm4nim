@@ -1,4 +1,4 @@
-import wasm4
+import ../src/wasm4
 
 var smiley = [
   0b11000011'u8,
