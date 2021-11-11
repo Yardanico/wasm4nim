@@ -2,7 +2,7 @@ const
   SCREEN_SIZE* = 160
 
 const
-  PALETTE* = (cast[ptr uint32](0x04))
+  PALETTE* = (cast[ptr UncheckedArray[uint32]](0x04))
   DRAW_COLORS* = (cast[ptr uint16](0x14))
   GAMEPAD1* = (cast[ptr uint8](0x16))
   GAMEPAD2* = (cast[ptr uint8](0x17))
@@ -11,7 +11,7 @@ const
   MOUSE_X* = (cast[ptr int16](0x1a))
   MOUSE_Y* = (cast[ptr int16](0x1c))
   MOUSE_BUTTONS* = (cast[ptr uint8](0x1e))
-  FRAMEBUFFER* = (cast[ptr uint8](0xa0))
+  FRAMEBUFFER* = (cast[ptr UncheckedArray[uint8]](0xa0))
 
 # TODO: Make those into enums, can't decide on the naming for now.
 const
@@ -23,6 +23,11 @@ const
   BUTTON_RIGHT* = 32
   BUTTON_UP* = 64
   BUTTON_DOWN* = 128
+
+const
+  MOUSE_LEFT* = 0
+  MOUSE_RIGHT* = 1
+  MOUSE_MIDDLE* = 2
 
 const
   BLIT_2BPP* = 1
