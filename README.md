@@ -1,3 +1,6 @@
+# **Obsolete** - Nim support based on this repo was added directly to https://github.com/aduros/wasm4 
+
+
 ## A simple example of how to use wasm-4 with Nim
 
 Compile the `hello.nim` with:
